@@ -1,11 +1,38 @@
+import { useState } from "react";
 import Card from "@/components/common/Card";
+import PostModal from "@/components/common/PostModal";
 
 const Home = () => {
+  const [cards, setCards] = useState([
+    { title: "Welcome", content: "This is a demo card" },
+  ]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddCard = (title: string, content: string) => {
+    setCards([...cards, { title, content }]);
+  };
+
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-3xl font-bold mb-4">Home</h1>
-      <Card title="First Card" content="This is the first card's content." />
-      <Card title="Second Card" content="Here is some more content in another card." />
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Home Page</h1>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="mb-6 px-4 py-2 bg-green-600 text-white rounded"
+      >
+        Add New Post
+      </button>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {cards.map((card, index) => (
+          <Card key={index} title={card.title} content={card.content} />
+        ))}
+      </div>
+
+      <PostModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddCard}
+      />
     </div>
   );
 };
