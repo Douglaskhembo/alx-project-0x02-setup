@@ -37,6 +37,3 @@ This project is a comprehensive introduction to setting up and working with Next
 - Optimize performance with lazy loading and efficient API calls
 - Write clear and descriptive commit messages
 - Maintain up-to-date documentation
-
-## Project Structure
-
