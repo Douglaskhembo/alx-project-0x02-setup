@@ -8,6 +8,7 @@ const Header = () => {
         <Link href="/home" className="hover:underline hover:font-semibold">Home</Link>
         <Link href="/about" className="hover:underline hover:font-semibold">About</Link>
         <Link href="/posts" className="hover:underline hover:font-semibold">Posts</Link>
+        <Link href="/users" className="hover:underline hover:font-semibold">Users</Link>
       </nav>
     </header>
   );
